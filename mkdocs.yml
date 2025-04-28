@@ -80,7 +80,8 @@ nav:
     - Changelog: changelog.md
     - Report Issues: https://github.com/zbhgis/geocolor/issues
     - Examples:
-        - examples/intro.ipynb
+          - examples/intro.ipynb
+          - examples/map.ipynb
     - API Reference:
           - geocolor module: geocolor.md
           - common module: common.md
