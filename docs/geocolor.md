@@ -1,4 +1,0 @@
-
-# geocolor module
-
-::: geocolor.geocolor
