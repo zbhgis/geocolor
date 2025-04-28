@@ -9,7 +9,7 @@
 
 -   Free software: MIT License
 -   Documentation: <https://zbhgis.github.io/geocolor>
-    
+
 
 ## Features
 
