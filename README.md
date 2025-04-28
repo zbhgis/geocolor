@@ -11,4 +11,4 @@
 ## Features
 
 -   Create interactive maps with minimal lines of code
--   Greatea tool for GIS
+-   Greate tool for GIS
