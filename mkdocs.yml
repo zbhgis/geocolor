@@ -82,6 +82,7 @@ nav:
     - Examples:
           - examples/intro.ipynb
           - examples/map.ipynb
+          - examples/folium.ipynb
     - API Reference:
           - geocolor module: geocolor.md
           - common module: common.md
