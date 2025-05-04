@@ -86,3 +86,4 @@ nav:
     - API Reference:
           - geocolor module: geocolor.md
           - common module: common.md
+          - foliumap module: foliumap.md
