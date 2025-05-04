@@ -215,3 +215,14 @@ class Map(ipyleaflet.Map):
         """Adds a layer control widget to the map."""
         control = ipyleaflet.LayersControl(position="topright")
         self.add_control(control)
+
+    def add_raster(self, filepath, **kwargs):
+
+        from localtileserver import TileClient, get_leaflet_tile_layer
+
+        client = TileClient(filepath)
+        tile_layer = get_leaflet_tile_layer(client, **kwargs)
+
+        self.add(tile_layer)
+        self.center = client.center()
+        self.zoom = client.default_zoom
