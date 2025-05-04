@@ -226,3 +226,16 @@ class Map(ipyleaflet.Map):
         self.add(tile_layer)
         self.center = client.center()
         self.zoom = client.default_zoom
+
+    def add_image(self, image, bounds=None, **kwargs):
+        """_summary_
+
+        Args:
+            image (_type_): _description_
+            bounds (_type_, optional): _description_. Defaults to None.
+        """
+
+        if bounds is None:
+            bounds = [[-90, -180], [90, 180]]
+        overlay = ipyleaflet.ImageOverlay(url=image, bounds=bounds, **kwargs)
+        self.add(overlay)
