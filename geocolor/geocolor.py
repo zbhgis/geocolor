@@ -6,7 +6,7 @@ import ipywidgets as widgets
 
 
 class Map(ipyleaflet.Map):
-    def __init__(self, center=[20, 0], zoom=2, height="400px", **kwargs):
+    def __init__(self, center=[20, 0], zoom=2, height="600px", **kwargs):
 
         super().__init__(center=center, zoom=zoom, **kwargs)
         self.layout.height = height
@@ -228,11 +228,12 @@ class Map(ipyleaflet.Map):
         self.zoom = client.default_zoom
 
     def add_image(self, image, bounds=None, **kwargs):
-        """_summary_
+        """Adds an image to the map.
 
         Args:
-            image (_type_): _description_
-            bounds (_type_, optional): _description_. Defaults to None.
+            image (str): The file path to the image.
+            bounds (list, optional): The bounds for the image. Defaults to None.
+            **kwargs: Additional keyword arguments for the ipyleaflet.ImageOverlay layer.
         """
 
         if bounds is None:
@@ -240,16 +241,29 @@ class Map(ipyleaflet.Map):
         overlay = ipyleaflet.ImageOverlay(url=image, bounds=bounds, **kwargs)
         self.add(overlay)
 
+    def add_video(self, video, bounds=None, **kwargs):
+        """Adds a video to the map.
+
+        Args:
+            video (str): The file path to the video.
+            bounds (list, optional): The bounds for the video. Defaults to None.
+            **kwargs: Additional keyword arguments for the ipyleaflet.VideoOverlay layer.
+        """
+
+        if bounds is None:
+            bounds = [[-90, -180], [90, 180]]
+        overlay = ipyleaflet.VideoOverlay(url=video, bounds=bounds, **kwargs)
+        self.add(overlay)
+
     def add_wms_layer(
         self, url, layers, format="image/png", transparent=True, **kwargs
     ):
-        """_summary_
+        """Adds a WMS layer to the map.
 
         Args:
-            url (_type_): _description_
-            layers (_type_): _description_
-            format (str, optional): _description_. Defaults to "image/png".
-            transparent (bool, optional): _description_. Defaults to True.
+            url (str): The WMS service URL.
+            layers (str): The layers to display.
+            **kwargs: Additional keyword arguments for the ipyleaflet.WMSLayer layer.
         """
         layer = ipyleaflet.WMSLayer(
             url=url, layers=layers, format=format, transparent=transparent, **kwargs
